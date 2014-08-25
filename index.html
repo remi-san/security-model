@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Security-model : Spring security model lib">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="http://remi-san.github.io/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://remi-san.github.io/stylesheets/pygment_trac.css" media="screen">
 
-    <title>Security-model</title>
+    <title>Security-Model by Remi San</title>
+	
+	<meta name="description" content="JavaEE - Spring Security Model Utilitaries">
+	<meta name="keywords" content="Java,JavaEE,J2E,J2EE,Spring,Security,Utilitaries" >
+	<meta name="author" content="Remi San<remi.san@gmail.com>">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 
   <body>
-
-    <!-- HEADER -->
+	<!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/remi-san/security-model">View on GitHub</a>
 
-          <h1 id="project_title">Security-model</h1>
-          <h2 id="project_tagline">Spring security model lib</h2>
+          <h1 id="project_title">Security-Model</h1>
+          <h2 id="project_tagline">Spring Security Model utilitaries</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/remi-san/security-model/zipball/master">Download this project as a .zip file</a>
@@ -30,23 +34,93 @@
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="security-model" class="anchor" href="#security-model"><span class="octicon octicon-link"></span></a>security-model</h1>
-
-<p>Spring security utilitaries</p>
-      </section>
+		<section id="main_content" class="inner">
+			<p class="warning">
+				This lib has a dependency on <a href="http://remi-san.github.io/base-model/">Base-Model</a>.
+			</p>
+			<h3>Package content /</h3>
+			<ul>
+				<li class="directory">
+					<span class="directory-name" id="src/main/java">src/main/java</span>
+					<ul>
+						<li class="package">
+							<span class="package-name" id="net.remisan.security.model">net.remisan.security.model</span>
+							<ul>
+							<li class="strong" id="BaseSecurityUser.java">
+								<span class="file">BaseSecurityUser.java</span>
+								<p class="file-description"></p>
+							</li>
+							<li class="strong" id="SecuredPersistable.java">
+								<span class="file">SecuredPersistable.java</span>
+								<p class="file-description"></p>
+							</li>
+							<li class="strong" id="SecurityRole.java">
+								<span class="file">SecurityRole.java</span>
+								<p class="file-description"></p>
+							</li>
+							<li class="strong" id="SecurityUser.java">
+								<span class="file">SecurityUser.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+						<li class="package">
+							<span class="package-name" id="net.remisan.security.repository">net.remisan.security.repository</span>
+							<ul>
+							<li class="strong" id="SecurityRoleRepository.java">
+								<span class="file">SecurityRoleRepository.java</span>
+								<p class="file-description"></p>
+							</li>
+							<li class="strong" id="SecurityUserRepository.java">
+								<span class="file">SecurityUserRepository.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+						<li class="package">
+							<span class="package-name" id="net.remisan.security.validation">net.remisan.security.validation</span>
+							<ul>
+							<li class="strong" id="UserValidator.java">
+								<span class="file">UserValidator.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+						<li class="package">
+							<span class="package-name" id="net.remisan.security.validation.util">net.remisan.security.validation.util</span>
+							<ul>
+							<li class="strong" id="UserValidationHelper.java">
+								<span class="file">UserValidationHelper.java</span>
+								<p class="file-description"></p>
+							</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<p>
+				<a href="http://remi-san.github.io/">Back to homepage</a>
+			</p>
+        </section>
     </div>
-
-    <!-- FOOTER  -->
+	
+	<!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Security-model maintained by <a href="https://github.com/remi-san">remi-san</a></p>
+        <p class="copyright">Library maintained by <a href="https://github.com/remi-san">remi-san</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
-
+	
+	<script type="application/javascript">
+	$(function() {
+		$('.package-name').click(function(e) {
+			$(e.target).next().toggle();
+		});
+		$('.file').click(function(e) {
+			//$(e.target).next().toggle();
+		});
+	});
+	</script>
   </body>
 </html>
