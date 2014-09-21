@@ -8,9 +8,9 @@ import javax.mail.Address;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
+import net.remisan.base.email.EmailManager;
 import net.remisan.base.manager.Manager;
 import net.remisan.base.service.AbstractService;
-import net.remisan.security.email.EmailManager;
 import net.remisan.security.manager.SecurityUserManager;
 import net.remisan.security.model.SecurityUser;
 import net.remisan.security.service.SecurityRoleService;
@@ -69,17 +69,8 @@ public class SecurityUserServiceImpl
 
     @Override
     public SecurityUser save(SecurityUser user) throws BindException {
-
-        this.userUtil.preSave(user);
-        boolean isNew = user.isNew();
-
-        SecurityUser u = this.manager.save(user);
-        
-        if (isNew) {
-            this.userUtil.postSave(u, true);
-        }
-
-        return u;
+    	
+    	return this.manager.save(user);
     }
     
     @Override

@@ -1,5 +1,6 @@
 package net.remisan.security.validation.util;
 
+import net.remisan.base.model.validation.util.UserValidationHelper;
 import net.remisan.security.model.SecurityUser;
 import net.remisan.security.repository.SecurityUserRepository;
 
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
 @Component
-public class UserValidationHelper {
+public class UserValidationHelperImpl implements UserValidationHelper {
 
     @Autowired
     private SecurityUserRepository userRepository;

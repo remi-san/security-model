@@ -8,8 +8,9 @@ import java.util.concurrent.Future;
 import javax.mail.internet.AddressException;
 import javax.persistence.EntityNotFoundException;
 
+import net.remisan.base.model.PersistableEntity;
+import net.remisan.base.util.ModelUtil;
 import net.remisan.security.acl.AclSecurityUtil;
-import net.remisan.security.model.SecuredPersistable;
 import net.remisan.security.model.SecurityRole;
 import net.remisan.security.model.SecurityUser;
 import net.remisan.security.permission.PermissionUtil;
@@ -39,7 +40,7 @@ public class UserUtil implements ModelUtil {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public void preSave(SecuredPersistable obj) {
+    public void preSave(PersistableEntity obj) {
 
         SecurityUser user = (SecurityUser) obj;
 
@@ -66,7 +67,7 @@ public class UserUtil implements ModelUtil {
     }
 
     @Override
-    public void postSave(SecuredPersistable obj, boolean newObject) {
+    public void postSave(PersistableEntity obj, boolean newObject) {
 
         SecurityUser user = (SecurityUser) obj;
 

@@ -65,7 +65,9 @@ public class AclSecurityUtilImpl implements AclSecurityUtil {
             acl.insertAce(acl.getEntries().size(), permission, recipient, true);
         }
 
-        this.mutableAclService.updateAcl(acl);
+        try {
+        	this.mutableAclService.updateAcl(acl);
+        } catch (NotFoundException e) {}
 
         logger.debug("Added permission " + permission + " for Sid " + recipient + " securedObject " + securedObject);
     }
@@ -88,26 +90,28 @@ public class AclSecurityUtilImpl implements AclSecurityUtil {
     @Override
     public void deletePermission(SecuredPersistable securedObject,
             Sid recipient, Permission permission) {
-        ObjectIdentity oid = new ObjectIdentityImpl(securedObject.getClass()
-                .getCanonicalName(), securedObject.getId());
-        MutableAcl acl = (MutableAcl) this.mutableAclService.readAclById(oid);
-
-        // Remove all permissions associated with this particular recipient
-        // (string equality to KISS)
-        List<AccessControlEntry> entries = acl.getEntries();
-
-        for (int i = 0; i < entries.size(); i++) {
-            if (
-                permission == null
-                    || (entries.get(i).getSid().equals(recipient)  && entries.get(i).getPermission().equals(permission))
-            ) {
-                acl.deleteAce(i);
-            }
-        }
-
-        this.mutableAclService.updateAcl(acl);
-
-        logger.debug("Deleted securedObject " + securedObject + " ACL permissions for recipient " + recipient);
+        ObjectIdentity oid = new ObjectIdentityImpl(securedObject.getClass().getCanonicalName(), securedObject.getId());
+        
+        try {
+	        MutableAcl acl = (MutableAcl) this.mutableAclService.readAclById(oid);
+	
+	        // Remove all permissions associated with this particular recipient
+	        // (string equality to KISS)
+	        List<AccessControlEntry> entries = acl.getEntries();
+	
+	        for (int i = 0; i < entries.size(); i++) {
+	            if (
+	                permission == null
+	                    || (entries.get(i).getSid().equals(recipient)  && entries.get(i).getPermission().equals(permission))
+	            ) {
+	                acl.deleteAce(i);
+	            }
+	        }
+	
+	        this.mutableAclService.updateAcl(acl);
+	
+	        logger.debug("Deleted securedObject " + securedObject + " ACL permissions for recipient " + recipient);
+        } catch (NotFoundException e) {}
     }
 
     protected String getUsername() {
